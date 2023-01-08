@@ -1,3 +1,5 @@
+const User = require('../models/user');
+
 module.exports.profile = function(request, response) {
     return response.render('users_profile', {
         title: "User profile"
@@ -20,7 +22,29 @@ module.exports.signIn = function(request, response) {
 
 // get the sign up data
 module.exports.create = function(request, response) {
-    // TODO later
+    if(request.body.password != request.body.confirm_password) {
+        return response.redirect('back');
+    }
+
+    // if password is same
+    User.findOne({email: request.body.email}, function(err, user) {
+        if(err) {
+            console.log('error in finding user in signing up');
+            return;
+        }
+        if(!user) {
+            User.create(request.body, function(err, user) {
+                if(err) {
+                    console.log('error in creating creating user while signing up');
+                    return;
+                }
+                return response.redirect('/users/sign-in');
+            });
+        }
+        else {
+            return response.redirect('back');
+        }
+    });
 }
 
 // sign in and create a session for the user

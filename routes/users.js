@@ -10,5 +10,7 @@ router.get('/profile', usersController.profile);
 router.get('/sign-up', usersController.signUp);
 // accessing 'users_controller action' -> that is 'signIn'
 router.get('/sign-in', usersController.signIn);
+// accessing 'users_controller action' -> that is 'create'
+router.post('/create', usersController.create);
 
 module.exports = router;
