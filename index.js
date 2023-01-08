@@ -7,6 +7,10 @@ const port = 8000;
 //  using express router
 app.use('/', require('./routes'));
 
+// setting up view engine
+app.set('view wngine', 'ejs');
+app.set('views', './views');
+
 
 app.listen(port, function(err) {
     // instead of using ',' or '+' for concatenating two string, we can embed our variable inside {} the string using (``)
