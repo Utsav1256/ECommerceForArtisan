@@ -11,6 +11,9 @@ app.use(expressLayouts);// we need todo this before requiring the routes // bcz.
 
 //  using express router
 app.use('/', require('./routes'));
+//extrcting styles and scripts from the sub pages into the layout
+app.set('layout extractStyles', true);
+app.set('layout extractScripts', true);
 
 // setting up view engine
 app.set('view engine', 'ejs');
