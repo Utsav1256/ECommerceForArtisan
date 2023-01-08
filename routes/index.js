@@ -8,7 +8,7 @@ const homeController = require('../controllers/home_controller');
 // accessing 'home_controller action' -> which is 'home' 
 router.get('/', homeController.home);
 
-
+router.use('/users', require('./users'));
 
 
 
