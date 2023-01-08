@@ -17,3 +17,13 @@ module.exports.signIn = function(request, response) {
         title: "Art | Sign In"
     });
 }
+
+// get the sign up data
+module.exports.create = function(request, response) {
+    // TODO later
+}
+
+// sign in and create a session for the user
+module.exports.createSession = function(request, response) {
+    // TODO later
+}
