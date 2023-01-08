@@ -4,7 +4,10 @@ const app = express();
 const port = 8000;
 const expressLayouts = require('express-ejs-layouts');
 
-app.use(expressLayouts);
+app.use(express.static('./assests'));
+
+app.use(expressLayouts);// we need todo this before requiring the routes // bcz. in the routes those views going to be rendered
+
 
 //  using express router
 app.use('/', require('./routes'));
